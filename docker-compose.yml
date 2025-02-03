@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  archlinux:
+    build: .
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - ./.X11-unix:/tmp/.X11-unix
+      - ./Xauthority:/home/sfoes/.Xauthority
+    network_mode: host
+    restart: always
+    container_name: 'arch_gui'
+    privileged: true
